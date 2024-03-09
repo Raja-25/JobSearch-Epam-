@@ -121,7 +121,7 @@ function JobsSearch() {
 
   const handleSave = (job) => {
     let savedJobs = JSON.parse(localStorage.getItem('savedJobs')) || [];
-    if (savedJobs.some(savedJob => savedJob.title === job.title)) {
+    if (savedJobs.some(savedJob => savedJob.title === job.title && savedJob.company === job.company)) {
       toast.error('Job already saved.');
     } else {
       savedJobs.push(job);
@@ -129,6 +129,7 @@ function JobsSearch() {
       toast.success('Job saved successfully.');
     }
   };
+
 
   return (
     <div className="container">
@@ -176,7 +177,7 @@ function JobsSearch() {
                     </li>
                   ))}
                 </ul>
-                <button onClick={() => handleSave(job)}>Save</button>
+                <button className='btn btn-primary mb-3' onClick={() => handleSave(job)}>Save</button>
               </div>
             </div>
           ))}
