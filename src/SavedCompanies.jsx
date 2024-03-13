@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './SavedCompanies.css'; // Import CSS file for styling
+import './SavedCompanies.css'; 
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 const SavedCompanies = () => {
-    // Retrieve saved companies from local storage
+
     const [savedCompanies, setSavedCompanies] = useState(JSON.parse(localStorage.getItem('savedJobs')) || []);
 
     const deleteJob = (index) => {
@@ -15,7 +15,7 @@ const SavedCompanies = () => {
     };
 
     return (
-        <div className="container">
+        <div className="savedcom container">
             <h1 className="mt-5 mb-4">Saved Companies</h1>
             {savedCompanies.length > 0 ? (
                 <div className="table-responsive">

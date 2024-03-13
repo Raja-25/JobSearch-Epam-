@@ -1,53 +1,60 @@
 .suggestions-list {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1;
-    list-style-type: none;
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 0;
-    margin: 0;
-    max-height: 200px;
-    overflow-y: auto;
-    width: 100%;
-  }
-  
-  .suggestions-list li {
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .suggestions-list li:hover {
-    background-color: #f0f0f0;
-  }
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  list-style-type: none;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+}
 
-  
-  button {
-    color: white;
-    text-decoration: none;
-    font-size: 25px;
-    border: none;
-    background: none;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  button::before {
-    margin-left: auto;
-  }
-  
-  button::after, button::before {
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: #2efa00;
-    display: block;
-    transition: 0.5s;
-  }
-  
-  button:hover::after, button:hover::before {
-    width: 100%;
-  }
+.suggestions-list li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.mainbutton {
+  position: relative;
+color: white;
+
+}
+
+button {
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+button::before {
+  margin-left: auto;
+}
+
+button::after,
+button::before {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #2efa00;
+  display: block;
+  transition: 0.5s;
+}
+
+button:hover::after,
+button:hover::before {
+  width: 100%;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'sonner';
-import { NavLink } from 'react-router-dom';
+
 export default function Navbar() {
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -14,34 +14,38 @@ export default function Navbar() {
     };
 
     const searchInPage = (query) => {
-        const searchText = query.toLowerCase();
-        const elements = document.getElementsByTagName('*');
+        if (query !== "") {
+            const searchText = query.toLowerCase();
+            const elements = document.getElementsByTagName('*');
 
-        let nearestElement;
-        let nearestDistance = Infinity;
+            let nearestElement;
+            let nearestDistance = Infinity;
 
-        for (let element of elements) {
-            const text = element.innerText.toLowerCase();
-            const words = text.split(/\s+/); // Split text into words
+            for (let element of elements) {
+                const text = element.innerText.toLowerCase();
+                const words = text.split(/\s+/);
 
-            for (let word of words) {
-                if (word === searchText) { // Compare entire word with query
-                    const index = text.indexOf(word);
-                    const distance = Math.abs(index - text.indexOf(word, index + word.length));
+                for (let word of words) {
+                    if (word === searchText) {
+                        const index = text.indexOf(word);
+                        const distance = Math.abs(index - text.indexOf(word, index + word.length));
 
-                    if (distance < nearestDistance) {
-                        nearestElement = element;
-                        nearestDistance = distance;
+                        if (distance < nearestDistance) {
+                            nearestElement = element;
+                            nearestDistance = distance;
+                        }
                     }
                 }
             }
-        }
 
-        if (nearestElement) {
-            nearestElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            toast.success(`Found "${query}" in the webpage.`);
+            if (nearestElement) {
+                nearestElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                toast.success(`Found "${query}" in the webpage.`);
+            } else {
+                toast.error(`"${query}" not found in the webpage.`);
+            }
         } else {
-            toast.error(`"${query}" not found in the webpage.`);
+            toast.error("Enter a word");
         }
     };
 

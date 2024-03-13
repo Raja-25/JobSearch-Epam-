@@ -133,9 +133,9 @@ function JobsSearch() {
 
   return (
     <div className="container">
-      <h1 className="mt-5 mb-4">Job Search</h1>
+      <h1 className="mt-5 mb-4 mainbutton">Job Search</h1>
       <div className="mb-3 position-relative">
-        <label className="form-label">Query:</label>
+        <label className="form-label mainbutton">Query:</label>
         <input
           type="text"
           className="form-control"
@@ -153,7 +153,7 @@ function JobsSearch() {
           </ul>
         )}
       </div>
-      <button className="btn btn-primary mb-3" onClick={handleSearch}>Search</button>
+      <button className="mainbutton btn btn-primary mb-3" onClick={handleSearch}>Search</button>
       {loading ? (
         <Loader />
       ) : jobsData && jobsData.jobs.length > 0 ? (
